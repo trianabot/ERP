@@ -7,6 +7,7 @@ const config = require('./src/config/config');
 
 //Routers
 const brandRouter = require('./src/routers/brands.router');
+const fieluploadRouters = require('./src/routers/fileupload.router');
 
 
 //db connection
@@ -17,6 +18,7 @@ app.use(morgan('dev'));
 //for getting the request body
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use('/erp', express.static('mediafiles'));
 
 // to prevent CORS errors
 app.use((req, res, next) => {
@@ -34,6 +36,7 @@ app.use((req, res, next) => {
  * Add Routers
  */
 app.use('/brands', brandRouter);
+app.use('/erp', fieluploadRouters);
 
 
 //Error Handling
