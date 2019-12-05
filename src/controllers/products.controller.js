@@ -40,13 +40,16 @@ module.exports.getAllProducts = (req, res, next)=>{
     .then(doc=>{
         if(doc.length>=1){
             doc.map((product=>{
-                if(product.productLogo && product.productLogo!=null){
+                if(product.productLogo && product.productLogo!='null'){
                     product.productLogo = req.protocol + '://' + req.headers.host + '/erp/' + product.productLogo;
                 }
                 if(product.brand.brandLogo){
-                    product.brand.brandLogo = req.protocol + '://' + req.headers.host + '/erp/' + product.brand.brandLogo;
+                    if(!product.brand.brandLogo.includes(req.protocol)){
+                        product.brand.brandLogo = req.protocol + '://' + req.headers.host + '/erp/' + product.brand.brandLogo;
+                    }
+                    
                 }
-                if(product.category.catLogo){
+                if(product.category.catLogo && !product.category.catLogo.includes(req.protocol)){
                     product.category.catLogo = req.protocol + '://' + req.headers.host + '/erp/' + product.category.catLogo;
                 }
             }));
