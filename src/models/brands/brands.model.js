@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 
 const brandsSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
+    brandId:{
+        type:String,
+        required:true
+    },
     brandName:{
         type:String,
         required:true
@@ -15,7 +19,11 @@ const brandsSchema = mongoose.Schema({
     },
     brandStatus:{
         type:Boolean,
-        default:false
+        default:true
+    },
+    company:{
+        type:String,
+        required:true
     }
 });
 
