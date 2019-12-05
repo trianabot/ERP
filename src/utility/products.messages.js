@@ -10,5 +10,8 @@ module.exports = {
     },
     products:{
         success:'Uploaded products are saved successfully'
+    },
+    parts: {
+        success: 'parts are uploaded successfully'
     }
 }

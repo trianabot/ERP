@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const mongoos = require('mongoose');
+const mongoose = require('mongoose');
 const config = require('./src/config/config');
 
 //Routers
@@ -10,9 +10,10 @@ const brandRouter = require('./src/routers/brands.router');
 const fieluploadRouters = require('./src/routers/fileupload.router');
 const categoryesRouter = require('./src/routers/categoryes.router');
 const productsRouter = require('./src/routers/products.router');
+const partsRouter = require('./src/routers/parts.router');
 
 //db connection
-mongoos.connect(config.db_connection_url, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(config.db_connection_url, { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(morgan('dev'));
 
 
@@ -40,6 +41,7 @@ app.use('/brands', brandRouter);
 app.use('/erp', fieluploadRouters);
 app.use('/categoryes', categoryesRouter);
 app.use('/products',productsRouter);
+app.use('/parts',partsRouter );
 
 
 //Error Handling
