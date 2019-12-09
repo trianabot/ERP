@@ -93,7 +93,8 @@ module.exports.loginUser = (req, res, next) => {
 
     UsersModel.findOne(
         { $or: [{ emailId: req.body.emailId }, { mobile: req.body.mobile }] }
-    ).exec()
+    ).populate("role")
+    .exec()
         .then(doc => {
             if (doc) {
                 if (!doc.isPasswordChanged) {
