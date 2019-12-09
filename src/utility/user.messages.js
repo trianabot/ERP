@@ -1,7 +1,9 @@
 module.exports = {
     
     role:{
-        success:'Role is created successfully'
+        role_created_succ:'Role is created successfully',
+        all_role_found:'Roles found successfully',
+        all_role_empty:'No Roles avilable'
     },
     user:{
         success:'User created successfully',
