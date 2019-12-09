@@ -11,6 +11,8 @@ const fieluploadRouters = require('./src/routers/fileupload.router');
 const categoryesRouter = require('./src/routers/categoryes.router');
 const productsRouter = require('./src/routers/products.router');
 const partsRouter = require('./src/routers/parts.router');
+const roleRouter = require('./src/routers/roles.router');
+const usersRouter = require('./src/routers/users.router');
 
 //db connection
 mongoose.connect(config.db_connection_url, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -42,6 +44,8 @@ app.use('/erp', fieluploadRouters);
 app.use('/categoryes', categoryesRouter);
 app.use('/products',productsRouter);
 app.use('/parts',partsRouter );
+app.use('/role', roleRouter);
+app.use('/users', usersRouter);
 
 
 //Error Handling
