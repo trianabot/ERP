@@ -98,7 +98,7 @@ module.exports.loginUser = (req, res, next) => {
         .then(doc => {
             if (doc) {
                 if (!doc.isPasswordChanged) {
-                    return res.status(200).json({
+                    return res.status(404).json({
                         message: userMsgProp.user.user_pass_change,
                         data: {
                             emailId: doc.emailId
