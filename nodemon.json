@@ -1,0 +1,7 @@
+{
+    "env":{
+        "MONGO_DB_PWD":"admin123",
+        "JWT_KEY":"Triana@456",
+        "ENCRIPTION_KEY":"EEbAZX@D&9150"
+    }
+}
